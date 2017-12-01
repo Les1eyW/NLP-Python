@@ -1,4 +1,2 @@
 # NLP-Python
-from nltk.book import*
-
-# 这里是标题
+# 用Python进行自然语言处理学习笔记
