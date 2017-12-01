@@ -37,9 +37,9 @@ text1
 
 `set(text3)`
 
-######文本元素排序表
+###### 文本元素排序表
 
-`sorted(set(text3))
+`sorted(set(text3))`
 
 ###### 文本元素排序表大小
 
