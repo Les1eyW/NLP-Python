@@ -61,14 +61,18 @@ len(text3) / len(sorted(text3))
 
 ###### e.g. text5中lol出现次数以及占文本全部词数百分比
 
-``` text5.count("lol")
+``` 
+text5.count("lol")
 704
 100 * text5.count('lol') / len(text5)
 1
+
 ```
 
 ###### 定义函数
-```def lexical_diversity(text):
+
+```
+def lexical_diversity(text):
 ...    return len(text) / len(set(text))
 ...
 def percentage(count, total):
