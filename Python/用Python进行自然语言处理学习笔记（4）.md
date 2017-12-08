@@ -185,3 +185,5 @@ reuters.fileids('barley')
 [u'THAI', u'TRADE', u'DEFICIT', u'WIDENS', u'IN', ...]
 >>>
 ```
+### 就职演说语料库
+```
