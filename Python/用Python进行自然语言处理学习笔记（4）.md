@@ -164,11 +164,24 @@ print (reuters.fileids())
 ['test/14826', 'test/14828', 'test/14829', 'test/14832',...]
 print (reuters.categories())
 [u'acq', u'alum', u'barley', u'bop', u'carcass', u'castor-oil', u'cocoa', u'coconut', u'coconut-oil', u'coffee', u'copper', u'copra-cake', u'corn', u'cotton', u'cotton-oil', u'cpi', u'cpu', u'crude', u'dfl', u'dlr', u'dmk',...]
+reuters.categories('training/9865')
+[u'barley', u'corn', u'grain', u'wheat']
+reuters.categories(['training/9865','training/9880'])
+[u'barley', u'corn', u'grain', u'money-fx', u'wheat']
+reuters.fileids('barley')
+[u'test/15618', u'test/15649', u'test/15676', u'test/15728', u'test/15871', u'test/15875', u'test/15952', u'test/17767', u'test/17769', u'test/18024', u'test/18263', u'test/18908', u'test/19275', u'test/19668', u'training/10175', u'training/1067', u'training/11208', u'training/11316', u'training/11885', u'training/12428', u'training/13099', u'training/13744', u'training/13795', u'training/13852', u'training/13856', u'training/1652', u'training/1970', u'training/2044', u'training/2171',...]
+>>> reuters.fileids(['barley','corn'])
+[u'test/14832', u'test/14858', u'test/15033', u'test/15043', u'test/15106', u'test/15287', u'test/15341', u'test/15618', u'test/15648', ...]
 ```
-
-
-
-
-
-
-
+以文档或类别为单位查找词句
+```
+>>> reuters.words('training/9865')[:14]
+[u'FRENCH', u'FREE', u'MARKET', u'CEREAL', u'EXPORT', u'BIDS', u'DETAILED', u'French', u'operators', u'have', u'requested', u'licences', u'to', u'export']
+>>> reuters.words(['training/9865','training/9880'])
+[u'FRENCH', u'FREE', u'MARKET', u'CEREAL', u'EXPORT', ...]
+>>> reuters.words(categories='barley')
+[u'FRENCH', u'FREE', u'MARKET', u'CEREAL', u'EXPORT', ...]
+>>> reuters.words(categories=['barley','corn'])
+[u'THAI', u'TRADE', u'DEFICIT', u'WIDENS', u'IN', ...]
+>>>
+```
