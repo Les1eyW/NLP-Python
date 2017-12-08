@@ -187,3 +187,33 @@ reuters.fileids('barley')
 ```
 ### 就职演说语料库
 ```
+from nltk.corpus import inaugural
+[u'1789-Washington.txt', u'1793-Washington.txt', u'1797-Adams.txt', u'1801-Jefferson.txt', u'1805-Jefferson.txt', u'1809-Madison.txt', u'1813-Madison.txt', u'1817-Monroe.txt', u'1821-Monroe.txt', u'1825-Adams.txt', u'1829-Jackson.txt', u'1833-Jackson.txt', u'1837-VanBuren.txt', u'1841-Harrison.txt', u'1845-Polk.txt', ...]
+[u'1789', u'1793', u'1797', u'1801', u'1805', u'1809', u'1813', u'1817', u'1821', u'1825', u'1829', u'1833', u'1837', u'1841', u'1845', u'1849', u'1853', u'1857', u'1861', u'1865', u'1869', u'1873', u'1877', u'1881', u'1885', ...]
+cfd = nltk.ConditionalFreqDist(
+    (target,file[:4])
+    for fileid in inaugural.fileids()
+    for w in inaugural.words(fileid)
+    for target in ['america','citizen']
+    if w.islower().startswith(target))
+print(cfd.plot())
+```
+### 标注文本语料库
+语言学标注包括词性标准、命名实体、句法结构、语义角色等。
+
+### 其他 语言的语料库
+```
+import nltk
+from nltk.corpus import  udhr
+languages=['Chickasaw','English','German_Deutsch','Greenlandic_Inuktikut','Hungarian_Magyar','Ibibio_Efik']
+cfd=nltk.ConditionalFreqDist(
+    (lang,len(word))
+    for lang in languages
+    for word in udhr.words(lang + '-Latin1'))
+cfd.plot(cumulative=True)
+```
+
+
+
+
+
