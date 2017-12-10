@@ -212,6 +212,32 @@ cfd=nltk.ConditionalFreqDist(
     for word in udhr.words(lang + '-Latin1'))
 cfd.plot(cumulative=True)
 ```
+### 文本语料库的结构
+语料库访问方法区别
+```
+import nltk
+from nltk.corpus import gutenberg
+raw=gutenberg.raw('burgess-busterbrown.txt')
+
+print (raw[1:20])前二十个字母加空格
+The Adventures of B
+
+words= gutenberg.words('burgess-busterbrown.txt')
+print(words[1:20])前二十个单词
+[u'The', u'Adventures', u'of', u'Buster', u'Bear', u'by', u'Thornton', u'W', u'.', u'Burgess', u'1920', u']', u'I', u'BUSTER', u'BEAR', u'GOES', u'FISHING', u'Buster', u'Bear']
+
+sents=gutenberg.sents('burgess-busterbrown.txt')
+print (sents[1:20])前二十个句子
+[[u'I'], [u'BUSTER', u'BEAR', u'GOES', u'FISHING'], [u'Buster', u'Bear', u'yawned', u'as', u'he', u'lay', u'on', u'his', u'comfortable', u'bed', u'of', u'leaves', u'and', u'watched', u'the', u'first', u'early', u'morning', u'sunbeams', u'creeping', u'through', u'the', u'Green', u'Forest', u'to', u'chase', u'out', u'the', u'Black', u'Shadows', u'.'], [u'Once', u'more', u'he', u'yawned', u',', u'and', u'slowly', u'got', u'to', u'his', u'feet', u'and', u'shook', u'himself', u'.'], [u'Then', u'he', u'walked', u'over', u'to', u'a', u'big', u'pine', u'-', u'tree', u',', u'stood', u'up', u'on', u'his', u'hind', u'legs', u',', u'reached', u'as', u'high', u'up', u'on', u'the', u'trunk', u'of', u'the', u'tree', u'as', u'he', u'could', u',', u'and', u'scratched', u'the', u'bark', u'with', u'his', u'great', u'claws', u'.'], [u'After', u'that', u'he', u'yawned', u'until', u'it', u'seemed', u'as', u'if', u'his', u'jaws', u'would', u'crack', u',', u'and', u'then', u'sat', u'down', u'to', u'think', u'what', u'he', u'wanted', u'for', u'breakfast', u'.'], [u'While', u'he', u'sat', u'there',...]
+```
+### 载入自己的语料库
+```
+from nltk.corpus import  PanLexLiteCorpusReader
+corpus_root='C:\Processing'
+wordlists=PanLexLiteCorpusReader(corpus_root,'[abc]/.*\.txt')
+wordlists.fileids()
+wordlists.words('connectives')
+```
 
 
 
